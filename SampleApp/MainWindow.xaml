@@ -1,0 +1,62 @@
+﻿<Window x:Class="SampleApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:SampleApp"
+        mc:Ignorable="d"
+        Title="Sample App"
+        Height="600" Width="800"
+        MinHeight="300" MinWidth="470"
+        AllowsTransparency="True" WindowStyle="None" Background="Transparent" Style="{StaticResource MyWindowStyle}">
+    <Window.Resources>
+        <!-- Resource Dictionaries -->
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Resources\MenuStyles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <Grid Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <StackPanel Margin="10" Grid.Row="0">
+            <DockPanel>
+                <Menu DockPanel.Dock="Top" Style="{DynamicResource StyleMenu}">
+                    <MenuItem Header="_Archivo">
+                        <MenuItem x:Name="closeMenu" Header="_Salir" Style="{DynamicResource StyleMenuItems}" Click="closeMenu_Click" />
+                    </MenuItem>
+                    <MenuItem Header="Ayuda">
+                        <MenuItem x:Name="aboutMenu" Header="_Acerca de" Style="{DynamicResource StyleMenuItems}" Click="aboutMenu_Click" />
+                    </MenuItem>
+                </Menu>
+            </DockPanel>
+            <Label Content="Sample App" Foreground="White" FontSize="26" />
+            <TabControl Margin="10" Background="{StaticResource WindowBackgroundColorBrush}">
+                <TabItem Header="Ventas" Style="{StaticResource TabItemStyle}">
+                    <StackPanel>
+                        <Label Content="Ventas" Foreground="White" />
+                        <TextBox x:Name="searchBox" Text="Buscar" Width="120" />
+                        <Button x:Name="btnSearch" Content="Buscar" Style="{DynamicResource WindowButtonStyle}" />
+                    </StackPanel>
+                </TabItem>
+                <TabItem Header="Registro de consulta" Style="{StaticResource TabItemStyle}">
+                    <Label Content="Registro de Consulta" Foreground="White" />
+                </TabItem>
+                <TabItem Header="Estadisticas" Style="{StaticResource TabItemStyle}">
+                    <Label Content="Estadisticas" Foreground="White" />
+                </TabItem>
+                <TabItem Header="Administrador" Style="{StaticResource TabItemStyle}">
+                    <Label Content="Administrador" Foreground="White" />
+                </TabItem>
+                <TabItem Header="? Ayuda" Style="{StaticResource TabItemStyle}">
+                    <Label Content="Ayuda" Foreground="White" />
+                </TabItem>
+            </TabControl>
+        </StackPanel>
+    </Grid>
+</Window>
