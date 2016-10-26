@@ -45,7 +45,7 @@
                     </StackPanel>
                 </TabItem>
                 <TabItem Header="Registro de consulta" Style="{StaticResource TabItemStyle}">
-                    <Label Content="Registro de Consulta" Foreground="White" />
+                    <TextBox x:Name="txtValue" Text="Busqueda" />
                 </TabItem>
                 <TabItem Header="Estadisticas" Style="{StaticResource TabItemStyle}">
                     <Label Content="Estadisticas" Foreground="White" />
